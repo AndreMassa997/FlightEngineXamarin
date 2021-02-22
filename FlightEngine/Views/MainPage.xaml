@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cell="clr-namespace:FlightEngine.Views"
+             x:Class="FlightEngine.Views.MainPage"
+             Title="LET'S FLY">
+
+    <StackLayout BackgroundColor="{StaticResource primaryColor}">
+        <StackLayout Orientation="Horizontal" Margin="20">
+            <ImageButton Source="remove_round" WidthRequest="30" HeightRequest="30" Command="{Binding RemovePersonCommand}" IsEnabled="{Binding IsRemovePersonButtonEnabled}" HorizontalOptions="Start" BackgroundColor="Transparent"/>
+            <Label Text="{Binding PeopleText}"  FontFamily="regularFont" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+            <ImageButton Source="add_round" WidthRequest="30" HeightRequest="30" Command="{Binding AddPersonCommand}" HorizontalOptions="End" BackgroundColor="Transparent"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="20, 0, 20, 0" BackgroundColor="{StaticResource primaryLightColor}">
+            <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer 
+                Command="{Binding DepartureCommand}" 
+                NumberOfTapsRequired="1"/>
+            </StackLayout.GestureRecognizers>
+             <Image Source="flight_takeoff" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" Margin="10, 0, 0, 0"/>
+             <Label TextColor="White" FontFamily="regularFont" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Text="{Binding DepartureAirportString}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Margin="20, 0, 0, 0" HeightRequest="50"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="20, 10, 20, 0" BackgroundColor="{StaticResource primaryLightColor}">
+                <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer 
+                Command="{Binding DestinationCommand}" 
+                NumberOfTapsRequired="1"/>
+               </StackLayout.GestureRecognizers>
+             <Image Source="flight_land" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" Margin="10, 0, 0, 0"/>
+             <Label TextColor="White" FontFamily="regularFont" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Text="{Binding DestinationAirportString}" HorizontalOptions="Start" VerticalOptions="Center" Margin="20, 0, 0, 0" HeightRequest="50"/>
+        </StackLayout>
+
+
+        <Frame BackgroundColor="White" VerticalOptions="FillAndExpand" CornerRadius="10" Margin="0, 20, 0, 0">
+           <StackLayout VerticalOptions="FillAndExpand">
+                <StackLayout Margin="20, 0, 20, 10" Orientation="Horizontal">
+                    <Label Text="{Binding ListTitleString}" Margin="20, 0, 0, 0"  FontFamily="regularFont" TextColor="{StaticResource primaryLightColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                    <ActivityIndicator Color="{StaticResource primaryLightColor}" IsRunning="{Binding ActivityLoaderRunning}" WidthRequest="20" HeightRequest="20"/>
+                </StackLayout>
+                <ListView x:Name="BottomBannerView"  SeparatorVisibility="Default" ItemsSource="{Binding BottomListViewItems}" HasUnevenRows="True" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                    <DataTemplate>
+                             <cell:SingleAirportCell />
+                    </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Style="{StaticResource buttonStyle}" Command="{Binding SearchCommand}" VerticalOptions="End" Margin="0, 10, 0, 20"  WidthRequest="200" HeightRequest="50" CornerRadius="25" Text="FLY!" />
+           </StackLayout>
+        </Frame>
+
+    </StackLayout>
+
+    
+
+</ContentPage>

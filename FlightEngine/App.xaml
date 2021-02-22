@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlightEngine.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="BorderColor" Value="{DynamicResource primaryColor}" />
+                <Setter Property="BorderRadius" Value="100" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="TextColor" Value="{DynamicResource primaryColor}" />
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="FontFamily" Value="regularFont" />
+            </Style>
+            <Style x:Key="entryStyle" TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource primaryLightColor}"/>
+                <Setter Property="FontFamily" Value="regularFont" />
+            </Style>
+            <Color x:Key="primaryColor">#5d1049</Color>
+            <Color x:Key="primaryDarkColor">#4e0d3a</Color>
+            <Color x:Key="primaryLightColor">#720d5d</Color>
+            <Color x:Key="accentColor">#e30425</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
